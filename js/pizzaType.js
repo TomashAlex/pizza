@@ -1,16 +1,38 @@
+
+
+/**
+ * Измененеие цвета фильтрации у элементов 
+ */
+let filterElements = document.querySelectorAll('.second__header_wrapper button');
+let contenHeader = document.querySelector('.content__title');
+
+for (const filterElement of filterElements) {
+      filterElement.onclick = function () {
+         if (!filterElement.classList.contains('active')) {
+            let activeElement = document.querySelector('.second__header_wrapper button.active');
+            activeElement.classList.remove('active');
+            filterElement.classList.add('active')
+            contenHeader.textContent = `${filterElement.textContent} пиццы`            
+         }
+      }
+}
+
+
+
+
 /**
  * Переключение между типами теста
  */
-let elements1 = document.querySelectorAll('.pizza_type li');
+let pizzaTypeElements = document.querySelectorAll('.pizza_type li');
 
-for (let i = 0; i < elements1.length; i++){
-   elements1[i].onclick = function () {
-      if (elements1[i].textContent == 'традиционное') {
-         elements1[i-1].classList.remove('active');
-         elements1[i].classList.add('active');
+for (let i = 0; i < pizzaTypeElements.length; i++){
+   pizzaTypeElements[i].onclick = function () {
+      if (pizzaTypeElements[i].textContent == 'традиционное') {
+         pizzaTypeElements[i-1].classList.remove('active');
+         pizzaTypeElements[i].classList.add('active');
       } else {
-         elements1[i+1].classList.remove('active');
-         elements1[i].classList.add('active');
+         pizzaTypeElements[i+1].classList.remove('active');
+         pizzaTypeElements[i].classList.add('active');
       }
    }
 }
@@ -18,22 +40,22 @@ for (let i = 0; i < elements1.length; i++){
 /**
  * Переключение между размером
  */
-let elements2 = document.querySelectorAll('.pizza_size li');
-for (let i = 0; i < elements2.length; i++){
-   elements2[i].onclick = function () {
-    if (elements2[i].textContent == '26 см'){
-      elements2[i].classList.add('active');
-      elements2[i+1].classList.remove('active');
-      elements2[i+2].classList.remove('active');
-     } else if (elements2[i].textContent == '30 см'){
-      elements2[i].classList.add('active');
-      elements2[i-1].classList.remove('active');
-      elements2[i+1].classList.remove('active');
+let pizzaSizeElements = document.querySelectorAll('.pizza_size li');
+for (let i = 0; i < pizzaSizeElements.length; i++){
+   pizzaSizeElements[i].onclick = function () {
+    if (pizzaSizeElements[i].textContent == '26 см'){
+      pizzaSizeElements[i].classList.add('active');
+      pizzaSizeElements[i+1].classList.remove('active');
+      pizzaSizeElements[i+2].classList.remove('active');
+     } else if (pizzaSizeElements[i].textContent == '30 см'){
+      pizzaSizeElements[i].classList.add('active');
+      pizzaSizeElements[i-1].classList.remove('active');
+      pizzaSizeElements[i+1].classList.remove('active');
       
      } else {
-      elements2[i].classList.add('active');
-      elements2[i-1].classList.remove('active');
-      elements2[i-2].classList.remove('active');
+      pizzaSizeElements[i].classList.add('active');
+      pizzaSizeElements[i-1].classList.remove('active');
+      pizzaSizeElements[i-2].classList.remove('active');
      }
    }
 }
